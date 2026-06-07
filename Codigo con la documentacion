@@ -1,0 +1,69 @@
+/**
+ * @file calculadoraIVA.cpp
+ * @brief Programa que calcula el precio de un producto sin IVA.
+ * @author Abner Gomez
+ * @date 2026
+ */
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+/**
+ * @brief Calcula el precio sin IVA.
+ *
+ * @param precioConIVA Precio del producto con IVA incluido.
+ * @return float Precio del producto sin IVA.
+ */
+float calcularPrecioSinIVA(float precioConIVA)
+{
+    return precioConIVA / 1.16;
+}
+
+/**
+ * @brief Muestra los resultados del cálculo.
+ *
+ * @param nombre Nombre del producto.
+ * @param precioConIVA Precio con IVA.
+ * @param precioSinIVA Precio sin IVA.
+ */
+void mostrarResultado(string nombre, float precioConIVA, float precioSinIVA)
+{
+    cout << "\nProducto: " << nombre;
+    cout << "\nPrecio con IVA: $" << precioConIVA;
+    cout << "\nPrecio sin IVA: $" << precioSinIVA << endl;
+}
+
+/**
+ * @brief Función principal del programa.
+ *
+ * Solicita el nombre del producto y su precio con IVA,
+ * calcula el precio sin IVA y muestra el resultado.
+ *
+ * @return int Retorna 0 si el programa termina correctamente.
+ */
+int main()
+{
+    string nombreProducto;
+    float precioConIVA;
+    float precioSinIVA;
+
+    cout << "Ingrese el nombre del producto: ";
+    getline(cin, nombreProducto);
+
+    cout << "Ingrese el precio con IVA: $";
+    cin >> precioConIVA;
+
+    if(precioConIVA <= 0)
+    {
+        cout << "Error: El precio debe ser mayor que cero." << endl;
+        return 1;
+    }
+
+    precioSinIVA = calcularPrecioSinIVA(precioConIVA);
+
+    mostrarResultado(nombreProducto, precioConIVA, precioSinIVA);
+
+    return 0;
+}
