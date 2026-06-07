@@ -1,0 +1,49 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+float calcularPrecioSinIVA(float precioConIVA)
+{
+    return precioConIVA / 1.16;
+}
+
+void mostrarResultado(string nombre, float precioConIVA, float precioSinIVA)
+{
+    cout << "\n====================================";
+    cout << "\n      RESULTADO DEL CALCULO";
+    cout << "\n====================================";
+    cout << "\nProducto: " << nombre;
+    cout << "\nPrecio con IVA: $" << precioConIVA;
+    cout << "\nPrecio sin IVA: $" << precioSinIVA;
+    cout << "\n====================================\n";
+}
+
+int main()
+{
+    string nombreProducto;
+    float precioConIVA;
+    float precioSinIVA;
+
+    cout << "====================================";
+    cout << "\n CALCULADORA DE PRECIO SIN IVA";
+    cout << "\n====================================\n";
+
+    cout << "Ingrese el nombre del producto: ";
+    getline(cin, nombreProducto);
+
+    cout << "Ingrese el precio con IVA: $";
+    cin >> precioConIVA;
+
+    if(precioConIVA <= 0)
+    {
+        cout << "\nError: El precio debe ser mayor que cero.\n";
+        return 1;
+    }
+
+    precioSinIVA = calcularPrecioSinIVA(precioConIVA);
+
+    mostrarResultado(nombreProducto, precioConIVA, precioSinIVA);
+
+    return 0;
+}
